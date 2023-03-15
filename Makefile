@@ -1,5 +1,5 @@
 all:
-	gcc --std=gnu99 -o output main.c dbgmsg.c
+	gcc --std=gnu99 -o output example.c dbgmsg.c
 
 clean: 
 	rm output
