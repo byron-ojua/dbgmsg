@@ -1,11 +1,11 @@
 #include "util.h"
 
-void prtdbgmsg(char *msg, FILE* out){
+void prtDbgMsg(char *msg, FILE* out){
     fprintf(out, "DEBUG MESSAGE: %s", msg);
     fflush(out);
 }
 
-void prtdbgmsgg(char *msg, FILE* out, int debugGroups[], char groupNames[][50], int group){
+void prtDbgMsgGp(char *msg, FILE* out, int debugGroups[], char groupNames[][50], int group){
     if (group > (sizeof debugGroups / sizeof *debugGroups) - 1){
         fprintf(stderr, "DEBUG MESSAGE: ERROR - Invalid debug group: %d\n", group);
         fflush(stderr);
@@ -20,7 +20,7 @@ void prtdbgmsgg(char *msg, FILE* out, int debugGroups[], char groupNames[][50], 
     fflush(out);
 }
 
-void enableDbgGp(int group, int debugGroups[]){
+void enblDbgGp(int group, int debugGroups[]){
     if (group > (sizeof debugGroups / sizeof *debugGroups) - 1){
         fprintf(stderr, "DEBUG MESSAGE: ERROR - Invalid debug group: %d\n", group);
         fflush(stderr);
@@ -29,7 +29,7 @@ void enableDbgGp(int group, int debugGroups[]){
     }
 }
 
-void disableDbgGp(int group, int debugGroups[]){
+void dsblDbgGp(int group, int debugGroups[]){
     if (group > (sizeof debugGroups / sizeof *debugGroups) - 1){
         fprintf(stderr, "DEBUG MESSAGE: ERROR - Invalid debug group: %d\n", group);
         fflush(stderr);
@@ -38,10 +38,10 @@ void disableDbgGp(int group, int debugGroups[]){
     }
 }
 
-void enableDbgOverride(int debugGroups[]){
+void enblDbgOride(int debugGroups[]){
     debugGroups[0] = 1;
 }
 
-void disableDbgOverride(int debugGroups[]){
+void dsblDbgOride(int debugGroups[]){
     debugGroups[0] = 0;
 }
