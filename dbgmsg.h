@@ -15,7 +15,7 @@ struct debugMessenger {
 
 // struct debugMessenger *debugMessenger(char names[][50], int numRows);
 struct debugMessenger debugMessenger(char names[][50], int numRows);
-void prtDbgMsg(char *msg, struct debugMessenger* dbgMsger);
+void prtDbgMsg(char *msg, FILE* out);
 void prtDbgMsgGp(char *msg, int group, struct debugMessenger* dbgMsger);
 void enblDbgGp(int group, struct debugMessenger* dbgMsger);
 void dsblDbgGp(int group, struct debugMessenger* dbgMsger);

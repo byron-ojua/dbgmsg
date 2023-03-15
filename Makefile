@@ -12,4 +12,4 @@ test:
 redirect-test:
 	clear
 	make
-	./output 2> error.txt
+	./output > error.txt
