@@ -8,7 +8,8 @@ A Makefile has been included to compile and use the example code. To use this ut
 Reference below to see how to use each function. See examples.c for library example.
 
 ### Create a Debug Messenger
-`struct debugMessenger debugMessenger(char names[][50], int numRows);`\n
+`struct debugMessenger debugMessenger(char names[][50], int numRows);`
+
 `debugMessenger()` creates a debugMessenger struct object using an array of input group names. Struct instance is referenced in all other functions.
 
 ### Set Output Stream
