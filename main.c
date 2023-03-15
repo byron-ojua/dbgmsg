@@ -1,23 +1,33 @@
 #include "header.h"
 
-int DEBUG_GROUPS[] = {0, 0};
-char DEBUG_NAMES[sizeof(DEBUG_GROUPS)][50] = {"OVERRIDE", "Group 1"};
-
-
 int main(int argc, char *argv[]){
-    printf("printf: Hello, World!\n");
-    prtDbgMsg("stdout: Hello, World!\n", stdout);
-    prtDbgMsg("stderr: Hello, World!\n", stderr);
+    char names[][50] = {{"Group 1"}, {"Group 2"}, {"Group 3"}, {"Group 4"}};
+    struct debugMessenger dbgMsger = debugMessenger(names, sizeof(names)/sizeof(names[0]));
+    freopen("/dev/tty", "w", stderr);
 
-    enblDbgGp(1, DEBUG_GROUPS);
+    printf("Hello from printf!\n");
+    prtDbgMsg("Hello from standard prtDbgMsg!\n", &dbgMsger);
+
+    dbgSetOutput(&dbgMsger, stderr);
+    prtDbgMsg("Hello from redirected prtDbgMsg!\n", &dbgMsger);
+
+    enblDbgGp(5, &dbgMsger);
+
+    printf("%s status %d\n", dbgMsger.groupNames[0], dbgMsger.groupStatus[0]);
+    printf("%s status %d\n", dbgMsger.groupNames[1], dbgMsger.groupStatus[1]);
+    printf("%s status %d\n", dbgMsger.groupNames[2], dbgMsger.groupStatus[2]);
     
-    prtDbgMsgGp("I am in group 1\n", stdout, DEBUG_GROUPS, DEBUG_NAMES, 1);
+    prtDbgMsgGp("I am in group 1\n", 1, &dbgMsger);
 
-    dsblDbgGp(1, DEBUG_GROUPS);
+    // dsblDbgGp(1, &dbgMsger);
 
-    enblDbgOride(DEBUG_GROUPS);
+    enblDbgOride(&dbgMsger);
 
-    prtDbgMsgGp("I am in group 1\n", stdout, DEBUG_GROUPS, DEBUG_NAMES, 1);
+    printf("%s status %d\n", dbgMsger.groupNames[0], dbgMsger.groupStatus[0]);
+    printf("%s status %d\n", dbgMsger.groupNames[1], dbgMsger.groupStatus[1]);
+    printf("%s status %d\n", dbgMsger.groupNames[2], dbgMsger.groupStatus[2]);
+
+    prtDbgMsgGp("I am in group 1\n", 1, &dbgMsger);
 
     return EXIT_SUCCESS;
 }

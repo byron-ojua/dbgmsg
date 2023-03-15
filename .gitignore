@@ -53,3 +53,5 @@ dkms.conf
 
 # Project files
 output
+*.txt
+.vscode
