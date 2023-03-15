@@ -5,8 +5,7 @@ Tired of adding and removing debug print statements? This tool is for you. Debug
 Reference below to see how to use each function. See examples.c for library example.
 
 ### Create a Debug Messenger
-`struct debugMessenger debugMessenger(char names[][50], int numRows);`
-
+`struct debugMessenger debugMessenger(char names[][50], int numRows);`\n
 `debugMessenger()` creates a debugMessenger struct object using an array of input group names. Struct instance is referenced in all other functions.
 
 ### Set Output Stream
