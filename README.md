@@ -38,3 +38,7 @@ When run, `dsblDbgGp()` will disable a debug group, and any messages assigned to
 ### Enable override
 `void dsblDbgOride(struct debugMessenger* dbgMsger);`\n
 `dsblDbgOride()` disables the override command, which means all debug comments will only run if their individual group is enabled.
+
+### Free Debug Messenger
+`void freeDbg(struct debugMessenger* dbgMsger);`\n
+`freeDbg()` frees all of the memory used by the debugMessenger.

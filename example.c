@@ -30,5 +30,7 @@ int main(int argc, char *argv[]){
     // Print message with override
     prtDbgMsgGp("I am in group 1\n", 1, &dbgMsger);
 
+    // Free memory used by debugMessenger
+    freeDbg(&dbgMsger);
     return EXIT_SUCCESS;
 }

@@ -122,3 +122,13 @@ void enblDbgOride(struct debugMessenger* dbgMsger){
 void dsblDbgOride(struct debugMessenger* dbgMsger){
     dbgMsger->groupStatus[1] = 0;
 }
+
+/**
+ * @brief Frees memory from debugMessenger
+ * 
+ * @param dbgMsger reference debugMessenger
+ */
+void freeDbg(struct debugMessenger* dbgMsger){
+    free(dbgMsger->groupNames);
+    free(dbgMsger->groupStatus);
+}

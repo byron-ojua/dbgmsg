@@ -22,5 +22,6 @@ void dsblDbgGp(int group, struct debugMessenger* dbgMsger);
 void enblDbgOride(struct debugMessenger* dbgMsger);
 void dsblDbgOride(struct debugMessenger* dbgMsger);
 void dbgSetOutput(struct debugMessenger* dbgMsger, FILE* output);
+void freeDbg(struct debugMessenger* dbgMsger);
 
 #endif
